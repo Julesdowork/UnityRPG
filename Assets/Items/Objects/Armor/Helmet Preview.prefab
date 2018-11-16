@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 23292102643373582}
   - component: {fileID: 33499360489724228}
   m_Layer: 0
-  m_Name: Helmet
+  m_Name: Helmet Preview
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
