@@ -3,6 +3,7 @@ using UnityEngine.AI;
 
 public class CharacterAnimator : MonoBehaviour {
 
+    public AnimatorOverrideController overrideController;
     public AnimationClip[] defaultAttackAnimSet;
     public AnimationClip replaceableAttackAnim;
 
@@ -11,7 +12,6 @@ public class CharacterAnimator : MonoBehaviour {
     protected Animator anim;
     private NavMeshAgent agent;
     protected CharacterCombat combat;
-    protected AnimatorOverrideController overrideController;
     protected AnimationClip[] currentAttackAnimSet;
 
 	// Use this for initialization
@@ -20,7 +20,10 @@ public class CharacterAnimator : MonoBehaviour {
         anim = GetComponentInChildren<Animator>();
         combat = GetComponent<CharacterCombat>();
 
-        overrideController = new AnimatorOverrideController(anim.runtimeAnimatorController);
+        if (overrideController == null)
+        {
+            overrideController = new AnimatorOverrideController(anim.runtimeAnimatorController);
+        }
         anim.runtimeAnimatorController = overrideController;
 
         currentAttackAnimSet = defaultAttackAnimSet;
